@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lâmpada On/Off</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-500 text-center font-sans">
+  <div class="p-8">
+    <h1 class="text-2xl font-bold mb-6">Controle de Lâmpada</h1>
+    <img id="lamp" src="https://i.postimg.cc/KjK1wL3c/bulb-off.png" alt="Lâmpada Apagada" class="w-48 mx-auto mb-6">
+    <button 
+      id="toggleButton" 
+      class="px-6 py-3 bg-blue-500 text-white rounded-md hover:bg-blue-700 transition-all">
+      Ligar
+    </button>
+  </div>
+
+  <script>
+   
+    const lamp = document.getElementById("lamp");
+    const toggleButton = document.getElementById("toggleButton");
+    const body = document.body;
+
+   
+    let isLampOn = false;
+
+    toggleButton.addEventListener("click", () => {
+      if (isLampOn) {
+        lamp.src = "https://i.postimg.cc/KjK1wL3c/bulb-off.png"; 
+        toggleButton.textContent = "Ligar"; 
+        body.classList.replace("bg-white", "bg-gray-500");
+        isLampOn = false;
+      } else {
+        lamp.src = "https://i.postimg.cc/6QyTynzr/bulb-on.pngg"; 
+        toggleButton.textContent = "Desligar"; 
+        body.classList.replace("bg-gray-500", "bg-white"); 
+        isLampOn = true;
+      }
+    });
+  </script>
+</body>
+</html>
